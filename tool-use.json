@@ -1,0 +1,41 @@
+{
+  "session_id": "098d64ad-55c6-4797-9845-2cd584556289",
+  "transcript_path": "/Users/anthonydesorbais/.claude/projects/-Users-anthonydesorbais-Desktop-pocket-heist/098d64ad-55c6-4797-9845-2cd584556289.jsonl",
+  "cwd": "/Users/anthonydesorbais/Desktop/pocket-heist",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/Users/anthonydesorbais/Desktop/pocket-heist/app/(public)/login/page.tsx",
+    "old_string": "        <h2 className=\"form-title\">Log in to Your Account</h2>",
+    "new_string": "        <h1 className=\"form-title\">Log in to Your Account</h1>",
+    "replace_all": false
+  },
+  "tool_response": {
+    "filePath": "/Users/anthonydesorbais/Desktop/pocket-heist/app/(public)/login/page.tsx",
+    "oldString": "        <h2 className=\"form-title\">Log in to Your Account</h2>",
+    "newString": "        <h1 className=\"form-title\">Log in to Your Account</h1>",
+    "originalFile": "export default function SignupPage() {\n  return (\n    <div className=\"center-content\">\n      <div className=\"page-content\">\n        <h2 className=\"form-title\">Log in to Your Account</h2>\n      </div>\n    </div>\n  )\n}",
+    "structuredPatch": [
+      {
+        "oldStart": 2,
+        "oldLines": 7,
+        "newStart": 2,
+        "newLines": 7,
+        "lines": [
+          "   return (",
+          "     <div className=\"center-content\">",
+          "       <div className=\"page-content\">",
+          "-        <h2 className=\"form-title\">Log in to Your Account</h2>",
+          "+        <h1 className=\"form-title\">Log in to Your Account</h1>",
+          "       </div>",
+          "     </div>",
+          "   )"
+        ]
+      }
+    ],
+    "userModified": false,
+    "replaceAll": false
+  },
+  "tool_use_id": "toolu_01EqPVRvoxdrt3i89pXadf24"
+}
