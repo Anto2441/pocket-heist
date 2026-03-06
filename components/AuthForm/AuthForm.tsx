@@ -1,16 +1,19 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Eye, EyeOff } from "lucide-react"
-import styles from "./AuthForm.module.css"
+import { useState } from "react";
+
+import Link from "next/link";
+import { Eye, EyeOff } from "lucide-react";
+import styles from "./AuthForm.module.css";
 
 interface AuthFormProps {
-  title: string
-  headingLevel: "h1" | "h2"
-  buttonLabel: string
-  linkText: string
-  linkHref: string
+  title: string;
+  headingLevel: "h1" | "h2";
+  buttonLabel: string;
+  linkText: string;
+  linkHref: string;
+  onSubmit?: (email: string, password: string) => Promise<void>;
+  error?: string | null;
 }
 
 export default function AuthForm({
@@ -19,16 +22,28 @@ export default function AuthForm({
   buttonLabel,
   linkText,
   linkHref,
+  onSubmit,
+  error,
 }: AuthFormProps) {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const Heading = headingLevel
+  const Heading = headingLevel;
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    console.log({ email, password })
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (onSubmit) {
+      setLoading(true);
+      try {
+        await onSubmit(email, password);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      console.log({ email, password });
+    }
   }
 
   return (
@@ -63,7 +78,9 @@ export default function AuthForm({
         </button>
       </div>
 
-      <button type="submit" className={styles.submitButton}>
+      {error && <p role="alert">{error}</p>}
+
+      <button type="submit" disabled={loading} className={styles.submitButton}>
         {buttonLabel}
       </button>
 
@@ -71,5 +88,5 @@ export default function AuthForm({
         {linkText}
       </Link>
     </form>
-  )
+  );
 }
