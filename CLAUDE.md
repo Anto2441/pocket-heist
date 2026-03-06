@@ -10,3 +10,7 @@ The role of this file is to describe common mistakes and confusion points that a
 - **React 19** with Typescript 5
 - **Tailwind CSS 4** + CSS Modules for styling
 - **Vitest** + React Testing Library for unit tests
+
+## Checking Documentation
+
+- **important** When implementing any lib/framework-specific features, ALWAYS check the appropriate lib/framework documentation using COntext 7 MCP server before writing any code.
