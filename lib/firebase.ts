@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  projectId: "pocket-heist-ad",
-  appId: "1:128773076116:web:0d09136bf6f83ef8e87081",
-  storageBucket: "pocket-heist-ad.firebasestorage.app",
-  apiKey: "AIzaSyBHcH3Fz5fvA9rFlxGL5OiBY18ur2WQRzE",
-  authDomain: "pocket-heist-ad.firebaseapp.com",
-  messagingSenderId: "128773076116",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
