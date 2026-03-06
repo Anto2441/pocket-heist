@@ -15,3 +15,7 @@
 svg.logo {
   display: inline-block;
 }
+
+.logoutButton {
+  @apply bg-primary text-dark font-bold py-2 px-4 rounded-md cursor-pointer border-none;
+}
