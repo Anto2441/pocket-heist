@@ -14,3 +14,7 @@ The role of this file is to describe common mistakes and confusion points that a
 ## Checking Documentation
 
 - **important** When implementing any lib/framework-specific features, ALWAYS check the appropriate lib/framework documentation using COntext 7 MCP server before writing any code.
+
+## Security
+
+- **ALWAYS** put external service credentials and config values (Firebase, API keys, etc.) in `.env.local`, even if they are technically "public" keys. Never hardcode them in source files. The `.env*` pattern is already in `.gitignore`. This prevents accidental exposure in public repos and avoids Google Cloud abuse alerts.

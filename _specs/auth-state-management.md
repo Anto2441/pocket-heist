@@ -45,7 +45,7 @@ N/A
 
 ## Open Questions
 
-- Should the loading state (before initial auth resolution) be exposed separately (e.g. `{ user, loading }`) or is `null` sufficient?
+- Should the loading state (before initial auth resolution) be exposed separately (e.g. `{ user, loading }`) or is `null` sufficient? Yes
 
 ## Testing Guidelines
 
