@@ -1,0 +1,206 @@
+@reference "../../app/globals.css";
+
+/* ── Background ──────────────────────────────────────────── */
+.splash {
+  position: relative;
+  min-height: 100lvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 20%, rgba(194, 122, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(251, 100, 182, 0.08) 0%, transparent 60%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(194, 122, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(194, 122, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* ── Content ─────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Badge ───────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #05DF72;
+  border: 1px solid rgba(5, 223, 114, 0.3);
+  border-radius: 2px;
+  padding: 0.35rem 0.75rem;
+  width: fit-content;
+  animation: fadeSlideDown 0.6s ease both;
+}
+
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #05DF72;
+  box-shadow: 0 0 6px #05DF72;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Title ───────────────────────────────────────────────── */
+.title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: fadeSlideDown 0.6s 0.1s ease both;
+}
+
+.title :global(.logo) {
+  width: 0.85em;
+  height: 0.85em;
+  color: #C27AFF;
+  filter: drop-shadow(0 0 12px rgba(194, 122, 255, 0.6));
+  display: inline-block;
+}
+
+/* ── Tagline ─────────────────────────────────────────────── */
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #C27AFF;
+  letter-spacing: 0.02em;
+  animation: fadeSlideDown 0.6s 0.2s ease both;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(194, 122, 255, 0.4), rgba(251, 100, 182, 0.2), transparent);
+  animation: fadeSlideDown 0.6s 0.3s ease both;
+}
+
+/* ── Description ─────────────────────────────────────────── */
+.description {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #99A1AF;
+  max-width: 560px;
+  animation: fadeSlideDown 0.6s 0.35s ease both;
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeSlideDown 0.6s 0.45s ease both;
+}
+
+.registerBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #030712;
+  background: linear-gradient(135deg, #C27AFF 0%, #FB64B6 100%);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 24px rgba(194, 122, 255, 0.35);
+}
+
+.registerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(194, 122, 255, 0.55), 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.registerBtn:active {
+  transform: translateY(0);
+}
+
+.registerBtn::after {
+  content: '→';
+  transition: transform 0.2s ease;
+}
+
+.registerBtn:hover::after {
+  transform: translateX(3px);
+}
+
+.loginLink {
+  font-size: 0.85rem;
+  color: #99A1AF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(153, 161, 175, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.loginLink:hover {
+  color: white;
+  border-color: white;
+}
+
+/* ── Shared animation ────────────────────────────────────── */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
