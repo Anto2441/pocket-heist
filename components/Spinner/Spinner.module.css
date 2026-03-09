@@ -1,0 +1,17 @@
+@reference "../../app/globals.css";
+
+.wrapper {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+.spinner {
+  @apply w-8 h-8 rounded-full border-2 border-body/20;
+  border-top-color: var(--color-primary);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
