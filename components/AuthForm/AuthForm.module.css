@@ -12,6 +12,13 @@
   @apply bg-lighter text-heading px-3 py-2 rounded-md border border-body/20 w-full;
 }
 
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-lighter) inset;
+  -webkit-text-fill-color: var(--color-heading);
+}
+
 .passwordField {
   @apply relative;
 }
@@ -26,4 +33,10 @@
 
 .switchLink {
   @apply text-primary text-sm text-center;
+}
+
+.successBanner {
+  @apply px-3 py-2 rounded-md font-medium;
+  color: var(--color-success);
+  background-color: #14532d;
 }
