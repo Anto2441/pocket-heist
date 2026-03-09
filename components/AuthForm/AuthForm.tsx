@@ -14,6 +14,7 @@ interface AuthFormProps {
   linkHref: string;
   onSubmit?: (email: string, password: string) => Promise<void>;
   error?: string | null;
+  success?: string | null;
 }
 
 export default function AuthForm({
@@ -24,6 +25,7 @@ export default function AuthForm({
   linkHref,
   onSubmit,
   error,
+  success,
 }: AuthFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +51,12 @@ export default function AuthForm({
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <Heading className="form-title">{title}</Heading>
+
+      {success && (
+        <p role="status" className={styles.successBanner}>
+          {success}
+        </p>
+      )}
 
       <label htmlFor="email">Email</label>
       <input
