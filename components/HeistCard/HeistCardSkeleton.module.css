@@ -1,0 +1,69 @@
+@reference "../../app/globals.css";
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.card {
+  @apply relative flex flex-col gap-3 p-4 rounded-lg;
+  background-color: var(--color-lighter);
+  border: 1px solid color-mix(in srgb, var(--color-body) 20%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--color-body) 20%, transparent);
+  min-height: 140px;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-body) 8%, transparent) 0%,
+    color-mix(in srgb, var(--color-body) 16%, transparent) 50%,
+    color-mix(in srgb, var(--color-body) 8%, transparent) 100%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.titleBar {
+  composes: shimmer;
+  height: 14px;
+  width: 65%;
+}
+
+.descBar1 {
+  composes: shimmer;
+  height: 11px;
+  width: 100%;
+}
+
+.descBar2 {
+  composes: shimmer;
+  height: 11px;
+  width: 80%;
+}
+
+.metaBar {
+  composes: shimmer;
+  height: 11px;
+  width: 45%;
+}
+
+.badgeBar {
+  composes: shimmer;
+  height: 20px;
+  width: 64px;
+  border-radius: 999px;
+}
+
+.header {
+  @apply flex items-center justify-between gap-2;
+}
+
+.descGroup {
+  @apply flex flex-col gap-1.5 flex-1;
+}
