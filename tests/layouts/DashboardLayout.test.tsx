@@ -8,6 +8,9 @@ import DashboardLayout from "@/app/(dashboard)/layout";
 vi.mock("@/hooks/useUser");
 vi.mock("next/navigation", () => ({ useRouter: vi.fn() }));
 vi.mock("@/components/Navbar", () => ({ default: () => <nav>Navbar</nav> }));
+vi.mock("@/components/Footer", () => ({
+  default: () => <footer>Footer</footer>,
+}));
 vi.mock("@/lib/firebase", () => ({ auth: {} }));
 
 import { useRouter } from "next/navigation";
