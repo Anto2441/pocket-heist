@@ -1,0 +1,21 @@
+@reference "../../app/globals.css";
+
+.siteFooter {
+  @apply bg-lighter px-2 py-6;
+}
+
+.inner {
+  @apply mx-auto max-w-6xl flex justify-between items-center;
+}
+
+.brand {
+  @apply text-body text-sm;
+}
+
+.icons {
+  @apply flex gap-4;
+}
+
+.iconLink {
+  @apply text-body hover:text-primary transition-colors;
+}
