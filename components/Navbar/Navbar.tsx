@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Clock8 } from "lucide-react";
-import Link from "next/link";
-import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
-import { useUser } from "@/hooks/useUser";
-import styles from "./Navbar.module.css";
+import { Clock8 } from 'lucide-react';
+import Link from 'next/link';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import { useUser } from '@/hooks/useUser';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const { user, loading } = useUser();
@@ -30,16 +30,16 @@ export default function Navbar() {
           </h1>
           <div>Tiny missions. Big office mischief.</div>
         </header>
-        <ul>
-          <li>
-            <Link href="/heists/create">Create Heist</Link>
-          </li>
-        </ul>
-        {!loading && user && (
-          <button className={styles.logoutButton} onClick={handleLogout}>
-            Log Out
-          </button>
-        )}
+        <div className={styles.actions}>
+          {!loading && user && (
+            <button className={styles.logoutButton} onClick={handleLogout}>
+              Log Out
+            </button>
+          )}
+          <Link href="/heists/create" className={styles.createButton}>
+            Create Heist
+          </Link>
+        </div>
       </nav>
     </div>
   );
